@@ -15,10 +15,13 @@ public class B2BFolderWatcherApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//https://www.baeldung.com/java-nio2-watchservice
-		
-		
 		System.out.println("====== Inizializzato ======");
+
 		
+		Path dir = Paths.get("C:\\B2B");
+        new WatchDir(dir,true).processEvents();
+		
+		/*
 		WatchService watchService = FileSystems.getDefault().newWatchService();
 	
 		Path path = Paths.get("C:\\B2B");
@@ -35,7 +38,7 @@ public class B2BFolderWatcherApplication implements CommandLineRunner {
 			
 			key.reset();  //riposizione la WatchKey nella coda del watchService, se non facio non è piu in grado di rilevare eventi
 		}
-		
+		*/
 		System.out.println("====== Qui non dovrebbe mai arrivarci ======");
 	}
 
